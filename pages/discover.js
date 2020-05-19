@@ -35,8 +35,8 @@ const CollectiveCardContainer = styled.div`
   padding: 20px 15px;
 `;
 
-const DiscoverPageDataQuery = gql`
-  query DiscoverPageDataQuery(
+const DiscoverPageQuery = gql`
+  query DiscoverPageQuery(
     $offset: Int
     $tags: [String]
     $orderBy: CollectiveOrderField
@@ -170,7 +170,7 @@ const DiscoverPage = () => {
 
   return (
     <Page title="Discover">
-      <Query query={DiscoverPageDataQuery} variables={params}>
+      <Query query={DiscoverPageQuery} variables={params}>
         {({ data, error, loading }) => (
           <Fragment>
             <Container
