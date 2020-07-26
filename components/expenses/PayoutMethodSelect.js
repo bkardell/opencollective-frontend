@@ -138,14 +138,13 @@ class PayoutMethodSelect extends React.Component {
     }
   }
 
-  removePayoutMethod(payoutMethod) {
-    return this.props.removePayoutMethod(payoutMethod.id).then(() => {
-      this.setState({ removingPayoutMethod: null });
-      this.props.onRemove(payoutMethod);
-      if (this.props.payoutMethod?.id === payoutMethod.id) {
-        this.props.onChange({ value: null });
-      }
-    });
+  async removePayoutMethod(payoutMethod) {
+    await this.props.removePayoutMethod({ variables: { id: payoutMethod.id } });
+    this.setState({ removingPayoutMethod: null });
+    this.props.onRemove(payoutMethod);
+    if (this.props.payoutMethod?.id === payoutMethod.id) {
+      this.props.onChange({ value: null });
+    }
   }
 
   formatOptionLabel = ({ value }, { context }) => {
@@ -255,9 +254,8 @@ const removePayoutMethodMutation = gqlV2/* GraphQL */ `
 `;
 
 const addRemovePayoutMethodMutation = graphql(removePayoutMethodMutation, {
-  props: ({ mutate }) => ({
-    removePayoutMethod: id => mutate({ variables: { id }, context: API_V2_CONTEXT }),
-  }),
+  options: { context: API_V2_CONTEXT },
+  name: 'removePayoutMethod',
 });
 
 export default React.memo(injectIntl(addRemovePayoutMethodMutation(PayoutMethodSelect)));

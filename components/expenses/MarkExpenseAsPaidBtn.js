@@ -128,5 +128,6 @@ class MarkExpenseAsPaidBtn extends React.Component {
   }
 }
 
-const addMutation = graphql(payExpenseMutation);
-export default addMutation(injectIntl(MarkExpenseAsPaidBtn));
+const addPayExpenseMutation = graphql(payExpenseMutation);
+
+export default injectIntl(addPayExpenseMutation(MarkExpenseAsPaidBtn));

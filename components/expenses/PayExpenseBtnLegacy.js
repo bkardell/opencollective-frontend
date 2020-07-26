@@ -174,5 +174,6 @@ class PayExpenseBtnLegacy extends React.Component {
   }
 }
 
-const addMutation = graphql(payExpenseMutation);
-export default addMutation(injectIntl(PayExpenseBtnLegacy));
+const addPayExpenseMutation = graphql(payExpenseMutation);
+
+export default injectIntl(addPayExpenseMutation(PayExpenseBtnLegacy));
