@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Mutation, Query } from '@apollo/react-components';
+import { Mutation, Query } from '@apollo/client/react/components';
 import { cloneDeep, get, update } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from '@apollo/react-components';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
+import { Query } from '@apollo/client/react/components';
 import { get, isEmpty, orderBy } from 'lodash';
 import { FormattedMessage, injectIntl } from 'react-intl';
 
