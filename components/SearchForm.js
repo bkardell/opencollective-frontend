@@ -11,7 +11,7 @@ import StyledInput from './StyledInput';
 
 const SearchInputContainer = styled(Flex)`
   border: solid 1px var(--silver-four);
-  border-radius: 20px;
+  border-radius: 6px;
   background-color: white;
 `;
 
